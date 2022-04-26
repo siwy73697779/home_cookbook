@@ -5,8 +5,10 @@
 <head>
 	<meta charset="utf-8"/>
 	<title>Home Cookbook RWD App</title>
+	<meta name="description" value="Strona jest lokalną bazą przepisów kulinarnych."/>
 	<meta name="viewport" content="width=device-width; initial-scale=1.0"/>
 	<link rel="stylesheet" href="./css/styl.css"/>
+	
 </head>
 
 
@@ -20,30 +22,40 @@
 		</header>
 		
 		<nav>
-			<div class="button">Przycisk 1</div>
-			<div class="button">Przycisk 2</div>
-			<div class="button">Przycisk 3</div>
+			<section>
+				<div class="button_nav" data-link="przegladaj">Przeglądaj przepisy</div>
+				<div class="button_nav" data-link="dodaj">Dodaj przepis</div>
+				<div class="button_nav" data-link="Przycisk3">Przycisk 3</div>
+				<div class="button_nav" data-link="onas">O nas / Projekcie</div>
+			</section>
+			<section>
+				<!-- <input placeholder="login" name="login"/><input type="password" placeholder="hasło" name="pass"/>
+				<button>Loguj</button> onclick="demo()"-->
+			</section>
 		</nav>
-		
-		<article>
-			<p>Pierwszy Paragraf</p>
-			<p>Drugi Paragraf</p>
-			<p>Trzeci Paragraf</p>
-		</article>
+		<main>
+			<article>
+				<p>Pierwszy Paragraf</p>
+				<p>Drugi Paragraf</p>
+				<p>Trzeci Paragraf</p>
+			</article>
+		</main>
 		
 		<aside>
 			<p>Tutaj znajduje się przypis dodatkowych informacji dotyczący pierwszej strony z przycisku</p>
 		</aside>
 		
 		<footer>
-			<div id="stopka_prawna">
+			<section>
 				© Marcin S. i Adam Ż. 2022. Wszelkie prawa zastrzeżone.
-				</br>v.0.000000002 2022.04.22 Daleko nam.
-			</div>
-			<div id="wykonanie">
+				</br>v.0.000000003 2022.04.23 Daleko nam.
+			</section>
+			<section>
 				siwy73697779 i RZyras
-			</div>
+			</section>
 		</footer>	
 	</div>
 </body>
+<script src="./jsscript/script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </html> 
