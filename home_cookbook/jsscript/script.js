@@ -1,44 +1,38 @@
-document.querySelectorAll(".button_nav").forEach(v => {v.onclick=
-	function(zdarzenie) {
+document.querySelectorAll(".btn_nav").forEach(v => {v.onclick=
+	function (wybor_menu) {
 		const http = new XMLHttpRequest()
-		http.onreadystatechange = function(wejscie) {
+		
+		http.onreadystatechange = function (check) {
 			if (http.readyState===4) {
 				if (http.status===200) {
-					document.querySelector("main").innerHTML = http.responseText;
+					http.addEventListener("click", Nawigacja());
+					http.addEventListener("click", Wyroznienie());					
 				}
 			}
 		}
+		
+		function Nawigacja() {
+			document.querySelector("main").innerHTML = http.responseText
+		}
+		
+		function Wyroznienie(){
+			wybor_menu.target.classList.add("btn_nav_click")
+			//Powyższe powoduje natychmiastową zmianę stylu po kliknięciu w nawigacji
+
+			$(document).ready(function () {
+				$(".btn_nav").click(function () {
+				$(".btn_nav").removeClass("btn_nav_click");
+//				$(this).addClass("btn_nav_click");
+				//Piertwsze naciśnięcie nie powoduje zmiany stylu. 
+				});
+			  });			
+		}
+
+		
 		http.open("get",`./sites/${v.dataset.link}.html`)
 		http.send();
-	};
-});
-
-
-
-
-
-/*
-(function(){
-    // `DOMContentLoaded` may fire before your script has a chance to run, so check before adding a listener
-    if (document.readyState === "loading") {
-        document.addEventListener("DOMContentLoaded", doStart);
-    }
-	else {  // `DOMContentLoaded` already fired
-        doStart();
-    }
-
-	function doStart() {
-
-		document.querySelectorAll(".button_nav").forEach( (el) => {
-			el.onclick = function(e) {
-			e.target.classList.toggle('nowa-klasa');
-		}
-	});
-}
-
-});
-*/
-
+	}
+})
 
 
 
