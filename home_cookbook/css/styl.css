@@ -1,13 +1,9 @@
 #main_grid {
+	margin: auto;
+	max-width: 1560px;
 	display: grid;
 	grid-template-rows: repeat (4, auto);
 	grid-template-columns: 20% auto 15%;
-	margin: auto;	
-}
-
-body {
-	max-width: 1500px;
-	justify-content: center;
 }
 
 header {
