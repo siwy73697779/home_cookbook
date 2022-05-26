@@ -8,8 +8,8 @@ function pobierzStrone(adres, cel="main", post='', wezwijMnie) {
 		if (http.readyState===4) {
 			if (http.status===200)
 			{
+				http.addEventListener("click", Nawigacja());
 				http.addEventListener("click", Wyroznienie());
-				http.addEventListener("click", Nawigacja());				
 			}
 		}
 	}
@@ -20,25 +20,20 @@ function pobierzStrone(adres, cel="main", post='', wezwijMnie) {
 	}
 	
 	
+
 	//szablon ciągów znakowych
 	http.open("post",(adres.indexOf('.php') !==-1) ? adres : `./sites/${adres}.html`)
 	http.send(post)
 }
 
-
-////////////////////////////////////////
-
-
 function Wyroznienie(){
-	
-	//wybor_menu.target.classList.add("btn_nav_click")
+	wybor_menu.target.classList.add("btn_nav_click")
 	
 	//Powyższe powoduje natychmiastową zmianę stylu po kliknięciu w nawigacji
 
 	$(document).ready(function () {
 		$(".btn_nav").click(function () {
 		$(".btn_nav").removeClass("btn_nav_click");
-		$(this).addClass("btn_nav_click");
 		//$(this).addClass("btn_nav_click");
 		//Piertwsze naciśnięcie nie powoduje zmiany stylu. 
 		});
@@ -47,6 +42,7 @@ function Wyroznienie(){
 
 
 ////////////////////////////////////
+
 
 
 function zdarzenieMenu() {
@@ -58,11 +54,13 @@ function zdarzenieMenu() {
 				history.replaceState('','',`?strona=${wartosc.dataset.link}`)
 				if (przycisk !== null)
 					przycisk.onclick = () => {
-						pobierzStrone("./php/form.php", "main", zapytanie);				
+						pobierzStrone("./php/form.php", "main", zapytanie)
 				}
 			})
 		}
 	})
+
+
 
 	//podmienia historię przeglądarki przez co mamy możliwość korzystania
 	//ze strony bez jej przeładowania, dodatkowo zaś uzyskujemy możliwość
